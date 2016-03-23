@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Terrain Generator</title>
+</head>
+<body>
+
+	<canvas id="map"></canvas>
+	Size (1 to 10) <input type="text" id="size">
+	Roughness (0.1 to 1) <input type="text" id="roughness">
+	<button id="gen">Generate</button>
+
+
+	<script type="text/javascript" src="funcs.js"></script>
+	<script type="text/javascript" src="terrain.js"></script>
+	<script type="text/javascript">
+	document.getElementById('gen').addEventListener('click', function(){
+		var size = document.getElementById('size').value;
+		var roughness = document.getElementById('roughness').value;
+		var map = new terrain(size, roughness);
+		map.generate();
+		map.draw(document.getElementById('map'));
+	});
+	</script>
+
+</body>
+</html>
